@@ -1,0 +1,53 @@
+@use '@styles/variables' as v;
+
+.dropdown-base {
+  width: 100%;
+  position: relative;
+
+  .dropdown-button {
+    width: 100%;
+    height: 38px;
+    border-radius: 5px;
+    background-color: v.$white;
+    box-shadow:
+      0 0 0 1px v.$shadow-border,
+      0 1.5px 3px -1.5px v.$shadow-border-soft,
+      0 1px 0.5px -1px v.$shadow-border;
+    color: v.$text-placeholder;
+    font-family: CircularStd-Regular;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+  }
+
+  .dropdown-button.toggle::after {
+    color: black;
+  }
+
+  .dropdown-options {
+    width: 100%;
+    height: 136px;
+    box-shadow:
+      0 0 0 1px v.$shadow-border-light,
+      0 2.5px 3px -1.5px v.$shadow-border-soft,
+      0 4.5px 5px -1px v.$shadow-border;
+    border-radius: 5px;
+    background-color: v.$white;
+    border: none;
+    overflow-y: auto;
+
+    .option {
+      width: 100%;
+      height: 28px;
+      color: v.$text-secondary;
+      font-family: CircularStd-Book;
+      font-size: 14px;
+      font-weight: 400;
+      font-style: book;
+    }
+
+    .option.selected {
+        color: v.$in-progress-label-color;
+    }
+  }
+}

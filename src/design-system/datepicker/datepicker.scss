@@ -1,0 +1,22 @@
+@use '@styles/variables' as v;
+
+.datepicker {
+  height: 38px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: v.$white;
+  box-shadow:
+    0 0 0 1px v.$shadow-border,
+    0 1.5px 3px -1.5px v.$shadow-border-soft,
+    0 1px 0.5px -1px v.$shadow-border;
+  color: v.$text-placeholder;
+  font-family: CircularStd-Regular;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+}
+
+.input-text:focus {
+  box-shadow: 0 0 0 2px v.$focus-ring;
+  color: v.$text-color;
+}

@@ -1,0 +1,10 @@
+<input
+  [id]="id()"
+  class="datepicker px-2"
+  type="date"
+  (change)="handleDateChange($event)"
+  [min]="min()"
+  [max]="max()"
+  [value]="value()"
+  [disabled]="disabled()"
+/>

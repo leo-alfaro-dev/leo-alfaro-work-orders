@@ -1,0 +1,6 @@
+<div [class]="['px-2', 'work-order-bar', 'd-flex', 'align-items-center', workOrder().status]" [title]="`${workOrder().displayText} - ${statusDisplayText[workOrder().status!]}`" (click)="handleOnClick()">
+    <span class="work-order-text">{{workOrder().displayText}}</span>
+    <div class="status-label">
+        <app-status-label [status]="workOrder().status" [displayText]="statusDisplayText[workOrder().status!]"></app-status-label>
+    </div>
+</div>

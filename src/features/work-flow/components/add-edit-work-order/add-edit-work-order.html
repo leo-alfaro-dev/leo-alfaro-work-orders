@@ -1,0 +1,54 @@
+<app-backdrop>
+  <div class="h-100 d-flex justify-content-end">
+    <form class="add-edit-form" [formGroup]="workOrderForm" (ngSubmit)="handleSubmit()">
+      <div class="header pt-4 pb-3 px-4 d-flex">
+        <div class="flex-grow-1">
+          <h1 class="primary-title">Work Order Details</h1>
+          <p class="primary-text">Specify the dates, name and status for this order</p>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <app-button displayText="Cancel" styleType="secondary" (click)="handleClose()"></app-button>
+          <app-button type="submit" [displayText]="workFlowService.addEditWorkOrder()?.docId ? 'Save' : 'Create'"></app-button>
+        </div>
+      </div>
+      <div class="px-4 pt-3">
+        <label for="work-order-name" class="form-primary-label">Work Order Name</label>
+        <app-input-text id="work-order-name" formControlName="name"></app-input-text>
+        @if (workOrderFormControls.name.invalid && workOrderFormControls.name.touched) {
+          <p class="form-error" role="alert">Work order name is required.</p>
+        }
+      </div>
+      <div class="px-4 pt-3">
+        <label for="status" class="form-primary-label">Status</label>
+        <app-dropdown
+          id="status"
+          [dropdownOptions]="statusDropdownOptions"
+          formControlName="status"
+        ></app-dropdown>
+        @if (workOrderFormControls.status.invalid && workOrderFormControls.status.touched) {
+          <p class="form-error" role="alert">Status is required.</p>
+        }
+      </div>
+      <div class="px-4 pt-3">
+        <label for="end-date" class="form-primary-label">End date</label>
+        <app-datepicker id="end-date" formControlName="endDate"></app-datepicker>
+        @if (workOrderFormControls.endDate.invalid && workOrderFormControls.endDate.touched) {
+          <p class="form-error" role="alert">End date is required.</p>
+        } @else if (workOrderForm.hasError('dateRange') && workOrderFormControls.endDate.touched) {
+          <p class="form-error" role="alert">End date must be on or after start date.</p>
+        } @else if (workOrderForm.hasError('dateOverlap') && (workOrderFormControls.endDate.touched || workOrderFormControls.startDate.touched)) {
+          <p class="form-error" role="alert">Dates overlap with another work order.</p>
+        }
+      </div>
+      <div class="px-4 pt-3">
+        <label for="start-date" class="form-primary-label">Start date</label>
+        <app-datepicker id="start-date" formControlName="startDate"></app-datepicker>
+        @if (workOrderFormControls.startDate.invalid && workOrderFormControls.startDate.touched) {
+          <p class="form-error" role="alert">Start date is required.</p>
+        } @else if (workOrderForm.hasError('dateOverlap') && (workOrderFormControls.endDate.touched || workOrderFormControls.startDate.touched)) {
+          <p class="form-error" role="alert">Dates overlap with another work order.</p>
+        }
+      </div>
+    </form>
+  </div>
+</app-backdrop>

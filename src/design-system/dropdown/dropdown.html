@@ -1,0 +1,31 @@
+<div class="dropdown-base" ngbDropdown role="group" [id]="id()">
+  <button
+    type="button"
+    class="dropdown-button toggle d-flex align-items-center justify-content-between"
+    ngbDropdownToggle
+    [disabled]="disabled()"
+    [attr.aria-disabled]="disabled()"
+  >
+    @if (selectedOption()?.isStatusLabel) {
+      <app-status-label
+        [status]="selectedOption()?.value"
+        [displayText]="selectedOption()?.label"
+      ></app-status-label>
+    } @else {
+      {{ selectedOption()?.label }}
+    }
+  </button>
+  <div class="dropdown-options" ngbDropdownMenu>
+    @for (option of dropdownOptions(); track option.value) {
+        <button
+          type="button"
+          class="option"
+          [class.selected]="option.value === selectedOption()?.value"
+          ngbDropdownItem
+          (click)="handleSelect(option)"
+        >
+          {{ option.label }}
+        </button>
+      }
+  </div>
+</div>

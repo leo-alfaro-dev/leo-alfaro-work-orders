@@ -1,0 +1,115 @@
+@use '@styles/variables' as v;
+
+.work-center-row-container {
+  position: relative;
+  height: 48px;
+  width: max-content;
+  min-width: 100%;
+}
+
+.work-center-row {
+  display: grid;
+  height: 48px;
+  width: max-content;
+  min-width: 100%;
+
+  &:hover {
+    .work-center {
+      background-color: v.$surface-hover-alt;
+    }
+
+    .work-order-cell {
+      background-color: v.$surface-hover;
+    }
+  }
+
+  .work-center {
+    border-right: 1px solid v.$border-light;
+    border-bottom: 1px solid v.$border-light;
+    background-color: v.$white;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    color: v.$text-color;
+    font-family: CircularStd-Regular;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 2rem;
+  }
+
+  .work-order-cell {
+    border-left: 1px solid v.$border-light;
+    background-color: v.$surface-muted;
+    position: relative;
+    cursor: pointer;
+
+    .add-work-order-indicator {
+      width: 90px;
+      height: 38px;
+      border-radius: 8px;
+      border: 1px solid v.$accent-blue-border;
+      background-color: v.$accent-blue-soft;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+      padding: 0;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      .add-work-order-tooltip {
+        width: 130px;
+        height: 26px;
+        box-shadow:
+          0 2px 4px -2px v.$shadow-border-soft,
+          0 0 16px -8px v.$border-subtle;
+        border-radius: 8px;
+        background-color: v.$text-muted;
+        color: v.$text-inverse;
+        font-family: CircularStd-Book;
+        font-size: 14px;
+        font-weight: 400;
+        font-style: book;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -32px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 2;
+      }
+    }
+
+    &:hover .add-work-order-indicator {
+      display: inline-flex;
+    }
+
+    &:hover .add-work-order-indicator:hover .add-work-order-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .work-order-cell.current-date {
+    border-left: 3px solid v.$in-progress-label-background-color;
+  }
+
+  .work-center + .work-order-cell {
+    border-left: 0;
+  }
+}
+
+.work-order-display {
+  top: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

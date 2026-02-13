@@ -1,0 +1,37 @@
+<div class="work-center-row-container">
+  <div
+    class="work-center-row"
+    [style.grid-template-columns]="
+      `${workFlowService.workCenterColumnWidthPx}px repeat(${columns().length}, ${workFlowService.columnWidthPx}px)`
+    "
+  >
+    <div class="work-center d-flex align-items-center">{{ workCenter()?.data?.name }}</div>
+    @for (column of columns(); track column.headerText) {
+      <div class="work-order-cell ps-3" [class.current-date]="column.isCurrent">
+        <button
+          (click)="handleAddWorkOrder(column.startDate, $event)"
+          type="button"
+          class="add-work-order-indicator"
+          aria-label="Add work order"
+        >
+          <span class="add-work-order-tooltip">Click to add dates</span>
+        </button>
+      </div>
+    }
+  </div>
+
+  @for (workOrderDisplay of workOrdersDisplay(); track workOrderDisplay.docId) {
+    <div
+      class="work-order-display"
+      [style.left.px]="workOrderDisplay.leftSpanPx"
+      [style.width.px]="workOrderDisplay.widthPx"
+    >
+      <app-work-order-bar
+        [workOrder]="workOrderDisplay"
+        [workCenterDocId]="workCenter()?.docId ?? ''"
+      ></app-work-order-bar>
+    </div>
+  }
+</div>
+
+

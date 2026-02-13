@@ -1,0 +1,60 @@
+@use '@styles/variables' as v;
+
+:host {
+  min-height: 0;
+}
+
+.work-flow-container {
+  min-height: 0;
+}
+
+.work-flow {
+  min-height: 0;
+  max-height: 100%;
+  flex-grow: 1;
+  border: 1px solid v.$border-light;
+  background-color: v.$white;
+  overflow: scroll;
+
+  .work-center-row {
+    display: grid;
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .work-center-row.header-row {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .header {
+    background-color: v.$white;
+    border-bottom: 1px solid v.$border-light;
+    height: 30px;
+    color: v.$text-muted;
+    font-family: CircularStd-Regular;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .header.current-date {
+    position: relative;
+
+    .current-label {
+      width: 93px;
+      height: 18px;
+      position: absolute;
+      top: 30px;
+    }
+  }
+
+  .work-center-header {
+    border-right: 1px solid v.$border-light;
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    padding-left: 2rem;
+  }
+}

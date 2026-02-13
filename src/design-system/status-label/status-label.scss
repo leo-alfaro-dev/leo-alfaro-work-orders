@@ -1,0 +1,33 @@
+@use '@styles/variables' as v;
+
+.status-label {
+  height: 22px;
+  font-family: CircularStd-Book;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: 400;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.open.status-label {
+  background-color: v.$open-background-color;
+  color: v.$open-label-color;
+  border: 1px solid v.$open-label-border-color;
+}
+
+.in-progress.status-label {
+  background-color: v.$in-progress-label-background-color;
+  color: v.$in-progress-label-color;
+}
+
+.complete.status-label {
+  background-color: v.$complete-label-background-color;
+  color: v.$complete-label-color;
+}
+
+.blocked.status-label {
+  background-color: v.$blocked-label-background-color;
+  color: v.$blocked-label-color;
+}

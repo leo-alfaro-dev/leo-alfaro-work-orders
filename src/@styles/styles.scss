@@ -1,0 +1,36 @@
+@use '@styles/variables' as v;
+
+// remove default margin from all p elements to customize it in specific classes
+p {
+  margin: 0;
+}
+
+.primary-title {
+  color: v.$text-color;
+  font-family: CircularStd-Medium;
+  font-size: 24px;
+  font-weight: 500;
+  font-style: medium;
+}
+
+.primary-text {
+  color: v.$text-muted;
+  font-family: CircularStd-Book;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form-primary-label {
+  color: v.$text-muted;
+  font-family: CircularStd-Regular;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.form-error {
+  margin-top: 6px;
+  color: v.$danger;
+  font-family: CircularStd-Regular;
+  font-size: 12px;
+  font-weight: 500;
+}

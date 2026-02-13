@@ -1,0 +1,15 @@
+@use '@styles/variables' as v;
+
+.add-edit-form {
+  width: 41%;
+  box-shadow:
+    0 5px 15px 0 v.$shadow-border,
+    0 2.5px 3px -1.5px v.$shadow-border-soft,
+    0 4.5px 5px -1px v.$shadow-border;
+  border-radius: 12px 0px 0px 12px;
+  background-color: v.$white;
+
+  .header {
+    border-bottom: 1px solid v.$border-subtle;
+  }
+}

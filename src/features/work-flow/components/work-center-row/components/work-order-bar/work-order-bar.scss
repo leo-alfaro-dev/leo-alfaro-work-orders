@@ -1,0 +1,77 @@
+@use '@styles/variables' as v;
+
+.work-order-bar {
+  height: 38px;
+  border-radius: 8px;
+  gap: 5px;
+  container-type: inline-size;
+  cursor: pointer;
+
+  .work-order-text {
+    height: 18px;
+    color: v.$text-color;
+    font-family: CircularStd-Book;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: book;
+    white-space: nowrap;
+    display: none;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @container (min-width: 20px) {
+    .work-order-text {
+      display: unset;
+    }
+  }
+
+  .status-label {
+    display: none;
+  }
+
+  @container (min-width: 200px) {
+    .status-label {
+      display: unset;
+    }
+  }
+}
+
+.open {
+  background-color: v.$open-background-color;
+  box-shadow: 0 0 0 1px v.$open-box-shadow-color;
+
+  .status-label {
+    min-width: 51px;
+  }
+}
+
+.in-progress {
+  background-color: v.$in-progress-background-color;
+  box-shadow: 0 0 0 1px v.$in-progress-box-shadow-color;
+
+  .status-label {
+    min-width: 87px;
+  }
+}
+
+.complete {
+  background-color: v.$complete-background-color;
+  box-shadow: 0 0 0 1px v.$complete-box-shadow-color;
+
+  .status-label {
+    min-width: 79px;
+  }
+}
+
+.blocked {
+  background-color: v.$blocked-background-color;
+  box-shadow: 0 0 0 1px v.$blocked-box-shadow-color;
+
+  .status-label {
+    min-width: 67px;
+  }
+}

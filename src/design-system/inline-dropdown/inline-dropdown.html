@@ -1,0 +1,22 @@
+<div class="btn-group dropdown-base" ngbDropdown role="group" aria-label="{{ label() }}">
+  <button class="dropdown-button label d-flex align-items-center">{{ label() }}</button>
+  <button type="button" class="dropdown-button toggle d-flex align-items-center" ngbDropdownToggle>
+    {{ selectedOption()?.label }}
+    <svg class="arrow " width="12" height="5" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0.5 1L6 7L11.5 1"
+        stroke="#3E40DB"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </button>
+  <div class="dropdown-menu dropdown-options" ngbDropdownMenu>
+    @for (option of dropdownOptions(); track option.value) {
+      <button class="option" ngbDropdownItem (click)="handleSelect(option)">
+        {{ option.label }}
+      </button>
+    }
+  </div>
+</div>

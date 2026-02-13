@@ -1,0 +1,67 @@
+@use '@styles/variables' as v;
+
+.dropdown-base {
+  box-shadow: 1px 2px 2px v.$shadow-black-13;
+
+  .dropdown-button {
+    width: 75px;
+    height: 25px;
+    background-color: v.$surface-muted-soft;
+    border: none;
+    padding-left: 10px;
+  }
+
+  .dropdown-button.label {
+    border-radius: 5px 0px 0px 5px;
+    color: v.$text-muted;
+    font-family: CircularStd-Book;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: book;
+    cursor: default;
+  }
+
+  .dropdown-button.toggle {
+    position: relative;
+    background-color: v.$white;
+    width: 71px;
+    border-radius: 0px 5px 5px 0px;
+    color: v.$in-progress-label-color;
+    font-family: CircularStd-Medium;
+    font-size: 13px;
+    font-weight: 500;
+    font-style: medium;
+
+    .arrow {
+      position: absolute;
+      right: 8px;
+      top: 11px;
+    }
+  }
+
+  .dropdown-button.toggle::after {
+    display: none;
+  }
+
+  .dropdown-options {
+    width: 200px;
+    height: 136px;
+    box-shadow:
+      0 0 0 1px v.$shadow-border-light,
+      0 2.5px 3px -1.5px v.$shadow-border-soft,
+      0 4.5px 5px -1px v.$shadow-border;
+    border-radius: 5px;
+    background-color: v.$white;
+    border: none;
+
+    .option {
+      width: 150px;
+      height: 18px;
+      color: v.$text-secondary;
+      font-family: CircularStd-Book;
+      font-size: 14px;
+      font-weight: 400;
+      font-style: book;
+    }
+  }
+}

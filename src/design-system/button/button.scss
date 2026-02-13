@@ -1,0 +1,29 @@
+@use '@styles/variables' as v;
+
+button {
+  min-width: 66px;
+  height: 32px;
+  border-radius: 7px;
+  font-family: CircularStd-Book;
+  font-size: 15px;
+  font-weight: 400;
+  border: none;
+}
+
+button.primary {
+  background-color: v.$accent-blue-strong;
+  box-shadow:
+    0 0 0 1px v.$accent-blue-strong,
+    0 1px 3px 0 v.$shadow-border-soft;
+  color: v.$white;
+}
+
+button.secondary {
+  background-color: v.$white;
+  box-shadow:
+    0 0 0 1px v.$white,
+    0 1px 3px 0 v.$shadow-border-soft;
+
+  color: v.$text-secondary;
+  letter-spacing: 0.33px;
+}

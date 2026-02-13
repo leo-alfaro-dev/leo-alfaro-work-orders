@@ -1,0 +1,46 @@
+<div class="work-flow-container mt-5 d-flex flex-column flex-grow-1">
+  <h1 class="primary-title">Work Order</h1>
+  <div class="pt-3">
+    <app-inline-dropdown
+      label="Timescale"
+      [dropdownOptions]="workFlowService.timeScaleOptions"
+      [value]="timescale()"
+      (onSelect)="onTimescaleSelect($event)"
+    ></app-inline-dropdown>
+  </div>
+  <div #workFlowScroll class="work-flow mt-3" (scroll)="handleScroll($event)">
+    <div
+      class="work-center-row header-row"
+      [style.grid-template-columns]="
+        `${workFlowService.workCenterColumnWidthPx}px repeat(${columns().length}, ${workFlowService.columnWidthPx}px)`
+      "
+    >
+      <div class="header work-center-header d-flex align-items-center justify-content-start">Work Centers</div>
+      @for (column of columns(); track column.headerText) {
+        <div
+          class="header d-flex align-items-center justify-content-center"
+          [class.current-date]="column.isCurrent"
+          [class.justify-content-start]="timescale() === 'week'"
+        >
+          {{ column.headerText }}
+          @if (column.isCurrent) {
+            <div class="current-label">
+              <app-status-label
+                status="in-progress"
+                [displayText]="currentTimescaleLabel()"
+              ></app-status-label>
+            </div>
+          }
+        </div>
+      }
+    </div>
+    @for (workCenter of workCenters(); track workCenter.docId) {
+      <app-work-center-row [workCenter]="workCenter"></app-work-center-row>
+    }
+  </div>
+</div>
+<ng-template #portalTemplate>
+  @if (workFlowService.isAddEditOpen()) {
+    <app-add-edit-work-order></app-add-edit-work-order>
+  }
+</ng-template>

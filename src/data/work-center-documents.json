@@ -1,0 +1,23 @@
+[
+  { "docId": "wc-001", "docType": "workCenter", "data": { "name": "Cutting" } },
+  { "docId": "wc-002", "docType": "workCenter", "data": { "name": "Welding" } },
+  { "docId": "wc-003", "docType": "workCenter", "data": { "name": "Assembly" } },
+  { "docId": "wc-004", "docType": "workCenter", "data": { "name": "Painting" } },
+  { "docId": "wc-005", "docType": "workCenter", "data": { "name": "Quality Control" } },
+  { "docId": "wc-006", "docType": "workCenter", "data": { "name": "Packaging" } },
+  { "docId": "wc-007", "docType": "workCenter", "data": { "name": "Machining" } },
+  { "docId": "wc-008", "docType": "workCenter", "data": { "name": "Maintenance" } },
+  { "docId": "wc-009", "docType": "workCenter", "data": { "name": "Calibration" } },
+  { "docId": "wc-010", "docType": "workCenter", "data": { "name": "Final Inspection" } },
+
+  { "docId": "wc-011", "docType": "workCenter", "data": { "name": "Material Preparation" } },
+  { "docId": "wc-012", "docType": "workCenter", "data": { "name": "Surface Treatment" } },
+  { "docId": "wc-013", "docType": "workCenter", "data": { "name": "Heat Treatment" } },
+  { "docId": "wc-014", "docType": "workCenter", "data": { "name": "Drilling" } },
+  { "docId": "wc-015", "docType": "workCenter", "data": { "name": "Grinding" } },
+  { "docId": "wc-016", "docType": "workCenter", "data": { "name": "Polishing" } },
+  { "docId": "wc-017", "docType": "workCenter", "data": { "name": "CNC Programming" } },
+  { "docId": "wc-018", "docType": "workCenter", "data": { "name": "Lathe Operations" } },
+  { "docId": "wc-019", "docType": "workCenter", "data": { "name": "Milling" } },
+  { "docId": "wc-020", "docType": "workCenter", "data": { "name": "Pressing" } }
+]
