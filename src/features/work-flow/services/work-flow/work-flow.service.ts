@@ -6,8 +6,9 @@ import workOrdersData from '@data/work-order-documents.json';
 import workCentersData from '@data/work-center-documents.json';
 import { WorkOrderDisplay } from '@models/work-order-display';
 import { Timescale } from '@models/timescale';
-import { computed, effect, Injectable, Signal, signal, WritableSignal } from '@angular/core';
+import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { WorkOrderStatus } from '@models/work-order-status';
+import { formatDate } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,7 @@ export class WorkFlowService {
   columnWidthPx = 100;
   workCenterColumnWidthPx = 382;
   unitDurationMs = 24 * 60 * 60 * 1000; // Day duration in ms
+  dateFormatString='yyyy-MM-ddTHH:mm:ss-06:00';
 
   // Timeline grid with all zoom levels (Day/Week/Month)
   timeScaleOptions: DropdownOption[] = [
@@ -50,11 +52,6 @@ export class WorkFlowService {
       map.set(wc.docId, signal<WorkOrderDisplay[]>(workOrdersToDisplay));
       return map;
     }, new Map<string, Signal<WorkOrderDisplay[]>>());
-  });
-
-  private readonly persistWorkOrdersEffect = effect(() => {
-    // Keep localStorage in sync with the in-memory signal.
-    this.saveWorkOrders(this.workOrders());
   });
 
   // functions
@@ -244,8 +241,10 @@ export class WorkFlowService {
       // Only the work orders of the current work center will be processed and added
       if (wo.data.workCenterId === workCenterDocId) {
         const { startDate, endDate } = wo.data; // Getting start and end dates from the work order data
-        const woStartDate = new Date(startDate);
-        const woEndDate = new Date(endDate);
+
+        
+        const woStartDate = new Date(formatDate(startDate, this.dateFormatString, 'en-US'));
+        const woEndDate = new Date(formatDate(endDate, this.dateFormatString, 'en-US'));
 
         //Checking the duration from the first column to the work order start date to calculate the left span in pixels
         const durationFromFirstColumDays =
