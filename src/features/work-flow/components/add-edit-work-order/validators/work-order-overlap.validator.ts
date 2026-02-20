@@ -24,7 +24,8 @@ export const workOrderOverlapValidator = (workFlowService: WorkFlowService): Val
     }
 
     const currentDocId = workFlowService.addEditWorkOrder()?.docId ?? null;
-    const workOrdersToDisplay = workFlowService.getStoredWorkOrdersToDisplayByWorkCenterDocId(workCenterDocId);
+    const workOrdersToDisplay =
+      workFlowService.getStoredWorkOrdersToDisplayByWorkCenterDocId(workCenterDocId);
 
     const hasOverlap = workOrdersToDisplay.some((workOrder) => {
       if (!workOrder.startDate || !workOrder.endDate) return false;

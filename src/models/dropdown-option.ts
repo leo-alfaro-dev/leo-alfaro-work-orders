@@ -1,4 +1,4 @@
-import { Timescale } from "@models/timescale"
+import { Timescale } from '@models/timescale';
 
 export interface DropdownOption<T = string> {
   label?: string;

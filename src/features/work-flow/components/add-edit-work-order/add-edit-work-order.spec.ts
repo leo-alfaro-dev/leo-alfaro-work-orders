@@ -8,9 +8,8 @@ describe('AddEditWorkOrder', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddEditWorkOrder]
-    })
-    .compileComponents();
+      imports: [AddEditWorkOrder],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddEditWorkOrder);
     component = fixture.componentInstance;

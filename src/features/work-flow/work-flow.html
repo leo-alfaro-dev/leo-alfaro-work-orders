@@ -11,11 +11,11 @@
   <div #workFlowScroll class="work-flow mt-3" (scroll)="handleScroll($event)">
     <div
       class="work-center-row header-row"
-      [style.grid-template-columns]="
-        `${workFlowService.workCenterColumnWidthPx}px repeat(${columns().length}, ${workFlowService.columnWidthPx}px)`
-      "
+      [style.grid-template-columns]="`${workFlowService.workCenterColumnWidthPx}px repeat(${columns().length}, ${workFlowService.columnWidthPx}px)`"
     >
-      <div class="header work-center-header d-flex align-items-center justify-content-start">Work Centers</div>
+      <div class="header work-center-header d-flex align-items-center justify-content-start">
+        Work Centers
+      </div>
       @for (column of columns(); track column.headerText) {
         <div
           class="header d-flex align-items-center justify-content-center"

@@ -35,9 +35,21 @@ describe('WorkFlowService', () => {
     service.timescale.set('day');
 
     const columns: WorkOrderColumn[] = [
-      { headerText: 'May 15 2025', startDate: new Date('2025-05-15T00:00:00.000Z'), isCurrent: false },
-      { headerText: 'May 16 2025', startDate: new Date('2025-05-16T00:00:00.000Z'), isCurrent: false },
-      { headerText: 'May 17 2025', startDate: new Date('2025-05-17T00:00:00.000Z'), isCurrent: false },
+      {
+        headerText: 'May 15 2025',
+        startDate: new Date('2025-05-15T00:00:00.000Z'),
+        isCurrent: false,
+      },
+      {
+        headerText: 'May 16 2025',
+        startDate: new Date('2025-05-16T00:00:00.000Z'),
+        isCurrent: false,
+      },
+      {
+        headerText: 'May 17 2025',
+        startDate: new Date('2025-05-17T00:00:00.000Z'),
+        isCurrent: false,
+      },
     ];
     (service as unknown as { columns: ReturnType<typeof signal<WorkOrderColumn[]>> }).columns =
       signal(columns);
@@ -83,9 +95,21 @@ describe('WorkFlowService', () => {
     service.timescale.set('day');
 
     const columns: WorkOrderColumn[] = [
-      { headerText: 'May 15 2025', startDate: new Date('2025-05-15T00:00:00.000Z'), isCurrent: false },
-      { headerText: 'May 16 2025', startDate: new Date('2025-05-16T00:00:00.000Z'), isCurrent: false },
-      { headerText: 'May 17 2025', startDate: new Date('2025-05-17T00:00:00.000Z'), isCurrent: false },
+      {
+        headerText: 'May 15 2025',
+        startDate: new Date('2025-05-15T00:00:00.000Z'),
+        isCurrent: false,
+      },
+      {
+        headerText: 'May 16 2025',
+        startDate: new Date('2025-05-16T00:00:00.000Z'),
+        isCurrent: false,
+      },
+      {
+        headerText: 'May 17 2025',
+        startDate: new Date('2025-05-17T00:00:00.000Z'),
+        isCurrent: false,
+      },
     ];
     (service as unknown as { columns: ReturnType<typeof signal<WorkOrderColumn[]>> }).columns =
       signal(columns);
@@ -165,7 +189,10 @@ describe('WorkFlowService', () => {
   });
 
   it('creates a work order and persists it', async () => {
-    const saveSpy = vi.spyOn(service as unknown as { saveWorkOrders: (items: WorkOrderDocument[]) => void }, 'saveWorkOrders');
+    const saveSpy = vi.spyOn(
+      service as unknown as { saveWorkOrders: (items: WorkOrderDocument[]) => void },
+      'saveWorkOrders',
+    );
     const initialLength = service.workOrders().length;
 
     const created = service.createWorkOrder({
@@ -184,7 +211,10 @@ describe('WorkFlowService', () => {
   });
 
   it('updates a work order and persists changes', async () => {
-    const saveSpy = vi.spyOn(service as unknown as { saveWorkOrders: (items: WorkOrderDocument[]) => void }, 'saveWorkOrders');
+    const saveSpy = vi.spyOn(
+      service as unknown as { saveWorkOrders: (items: WorkOrderDocument[]) => void },
+      'saveWorkOrders',
+    );
     const original: WorkOrderDocument = {
       docId: 'wo-100',
       docType: 'workOrder',

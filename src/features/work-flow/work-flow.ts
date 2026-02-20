@@ -43,7 +43,8 @@ export class WorkFlow implements AfterViewInit, OnDestroy {
   private userHasScrolled = signal<boolean>(false);
 
   @ViewChild('portalTemplate', { read: TemplateRef }) portalTemplate!: TemplateRef<any>;
-  @ViewChild('addEditWorkOrder', { read: TemplateRef }) addEditWorkOrder!: TemplateRef<AddEditWorkOrder>;
+  @ViewChild('addEditWorkOrder', { read: TemplateRef })
+  addEditWorkOrder!: TemplateRef<AddEditWorkOrder>;
   @ViewChild('workFlowScroll', { read: ElementRef }) workFlowScroll!: ElementRef<HTMLElement>;
 
   timescale = this.workFlowService.timescale;
@@ -52,7 +53,7 @@ export class WorkFlow implements AfterViewInit, OnDestroy {
 
   currentTimescaleLabel = computed(() => {
     const option = this.workFlowService.timeScaleOptions.find(
-      (ts) => ts.value === this.timescale()
+      (ts) => ts.value === this.timescale(),
     );
     return option ? `Current ${option.label}` : '';
   });
@@ -99,7 +100,7 @@ export class WorkFlow implements AfterViewInit, OnDestroy {
     this.portalService.detach();
   }
 
-  isOpen = signal<boolean>(false)
+  isOpen = signal<boolean>(false);
 
   handleScroll(event: Event) {
     const target = event.target as HTMLElement;

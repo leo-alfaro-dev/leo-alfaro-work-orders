@@ -7,8 +7,15 @@
           <p class="primary-text">Specify the dates, name and status for this order</p>
         </div>
         <div class="d-flex align-items-center gap-2">
-          <app-button displayText="Cancel" styleType="secondary" (click)="handleClose()"></app-button>
-          <app-button type="submit" [displayText]="workFlowService.addEditWorkOrder()?.docId ? 'Save' : 'Create'"></app-button>
+          <app-button
+            displayText="Cancel"
+            styleType="secondary"
+            (click)="handleClose()"
+          ></app-button>
+          <app-button
+            type="submit"
+            [displayText]="workFlowService.addEditWorkOrder()?.docId ? 'Save' : 'Create'"
+          ></app-button>
         </div>
       </div>
       <div class="px-4 pt-3">
@@ -36,7 +43,10 @@
           <p class="form-error" role="alert">End date is required.</p>
         } @else if (workOrderForm.hasError('dateRange') && workOrderFormControls.endDate.touched) {
           <p class="form-error" role="alert">End date must be on or after start date.</p>
-        } @else if (workOrderForm.hasError('dateOverlap') && (workOrderFormControls.endDate.touched || workOrderFormControls.startDate.touched)) {
+        } @else if (
+          workOrderForm.hasError('dateOverlap') &&
+          (workOrderFormControls.endDate.touched || workOrderFormControls.startDate.touched)
+        ) {
           <p class="form-error" role="alert">Dates overlap with another work order.</p>
         }
       </div>
@@ -45,7 +55,10 @@
         <app-datepicker id="start-date" formControlName="startDate"></app-datepicker>
         @if (workOrderFormControls.startDate.invalid && workOrderFormControls.startDate.touched) {
           <p class="form-error" role="alert">Start date is required.</p>
-        } @else if (workOrderForm.hasError('dateOverlap') && (workOrderFormControls.endDate.touched || workOrderFormControls.startDate.touched)) {
+        } @else if (
+          workOrderForm.hasError('dateOverlap') &&
+          (workOrderFormControls.endDate.touched || workOrderFormControls.startDate.touched)
+        ) {
           <p class="form-error" role="alert">Dates overlap with another work order.</p>
         }
       </div>

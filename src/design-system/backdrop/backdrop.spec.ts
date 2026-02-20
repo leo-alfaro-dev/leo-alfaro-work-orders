@@ -8,9 +8,8 @@ describe('Backdrop', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Backdrop]
-    })
-    .compileComponents();
+      imports: [Backdrop],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Backdrop);
     component = fixture.componentInstance;

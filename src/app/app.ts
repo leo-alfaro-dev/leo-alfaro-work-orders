@@ -8,7 +8,6 @@ import { HeaderBar } from '@app/layout/header-bar/header-bar';
   templateUrl: './app.html',
   styleUrl: './app.scss',
   standalone: true,
-  
 })
 export class App {
   protected readonly title = signal('leo-alfaro-work-orders');

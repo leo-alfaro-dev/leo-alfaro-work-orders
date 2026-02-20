@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -23,7 +30,7 @@ export class InputText implements ControlValueAccessor {
   // state
   value = signal<string>('');
   disabled = signal<boolean>(false);
-  
+
   // functions
   onChange = output<string>();
 

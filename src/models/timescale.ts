@@ -1,1 +1,1 @@
-export type Timescale = "day" | "week" | "month"
+export type Timescale = 'day' | 'week' | 'month';

@@ -1,9 +1,7 @@
 <div class="work-center-row-container">
   <div
     class="work-center-row"
-    [style.grid-template-columns]="
-      `${workFlowService.workCenterColumnWidthPx}px repeat(${columns().length}, ${workFlowService.columnWidthPx}px)`
-    "
+    [style.grid-template-columns]="`${workFlowService.workCenterColumnWidthPx}px repeat(${columns().length}, ${workFlowService.columnWidthPx}px)`"
   >
     <div class="work-center d-flex align-items-center">{{ workCenter()?.data?.name }}</div>
     @for (column of columns(); track column.headerText) {
@@ -33,5 +31,3 @@
     </div>
   }
 </div>
-
-

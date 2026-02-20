@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './header-bar.html',
   styleUrl: './header-bar.scss',
 })
-export class HeaderBar {
-
-}
+export class HeaderBar {}

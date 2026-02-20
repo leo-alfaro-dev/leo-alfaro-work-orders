@@ -8,9 +8,8 @@ describe('StatusLabel', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StatusLabel]
-    })
-    .compileComponents();
+      imports: [StatusLabel],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(StatusLabel);
     component = fixture.componentInstance;

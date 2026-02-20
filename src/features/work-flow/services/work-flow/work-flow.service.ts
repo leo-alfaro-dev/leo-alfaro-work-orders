@@ -90,10 +90,7 @@ export class WorkFlowService {
     );
 
     let columnDate = new Date(currentDate);
-    columnDate = this.timeScaleAddTimeFuncions[timescale](
-      columnDate,
-      this.startOffset(),
-    );
+    columnDate = this.timeScaleAddTimeFuncions[timescale](columnDate, this.startOffset());
 
     for (let i = 1; i < this.totalColumns() + 1; i++) {
       columnDate = this.timeScaleAddTimeFuncions[timescale](columnDate, 1);
@@ -189,7 +186,9 @@ export class WorkFlowService {
 
   private createGuid(): string {
     // Prefer native UUIDs when available; fallback keeps ids unique enough for local usage.
-    const cryptoObj = (typeof globalThis !== 'undefined' ? globalThis.crypto : undefined) as Crypto | undefined;
+    const cryptoObj = (typeof globalThis !== 'undefined' ? globalThis.crypto : undefined) as
+      | Crypto
+      | undefined;
     if (cryptoObj?.randomUUID) {
       return cryptoObj.randomUUID();
     }
@@ -207,7 +206,9 @@ export class WorkFlowService {
 
     try {
       const parsed = JSON.parse(stored);
-      return Array.isArray(parsed) ? (parsed as WorkOrderDocument[]) : (workOrdersData as WorkOrderDocument[]);
+      return Array.isArray(parsed)
+        ? (parsed as WorkOrderDocument[])
+        : (workOrdersData as WorkOrderDocument[]);
     } catch {
       return workOrdersData as WorkOrderDocument[];
     }

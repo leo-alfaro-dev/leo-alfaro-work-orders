@@ -20,11 +20,11 @@ export class WorkOrderBar {
 
   //consts
   statusDisplayText: Record<WorkOrderStatus, string> = {
-    "open" : "Open",
-    "in-progress": "In progress",
-    "complete": "Complete",
-    "blocked": "Blocked"
-  } as const
+    open: 'Open',
+    'in-progress': 'In progress',
+    complete: 'Complete',
+    blocked: 'Blocked',
+  } as const;
 
   handleOnClick() {
     this.workFlowService.openAddEditWorkOrder(this.workCenterDocId(), this.workOrder());

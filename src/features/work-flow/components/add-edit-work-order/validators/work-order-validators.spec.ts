@@ -37,8 +37,16 @@ describe('Work order validators', () => {
 
   it('flags overlaps within the same work center', () => {
     const columns: WorkOrderColumn[] = [
-      { headerText: 'May 1 2025', startDate: new Date('2025-05-01T00:00:00.000Z'), isCurrent: false },
-      { headerText: 'May 2 2025', startDate: new Date('2025-05-02T00:00:00.000Z'), isCurrent: false },
+      {
+        headerText: 'May 1 2025',
+        startDate: new Date('2025-05-01T00:00:00.000Z'),
+        isCurrent: false,
+      },
+      {
+        headerText: 'May 2 2025',
+        startDate: new Date('2025-05-02T00:00:00.000Z'),
+        isCurrent: false,
+      },
     ];
     (service as unknown as { columns: ReturnType<typeof signal<WorkOrderColumn[]>> }).columns =
       signal(columns);
@@ -70,8 +78,16 @@ describe('Work order validators', () => {
 
   it('allows non-overlapping dates', () => {
     const columns: WorkOrderColumn[] = [
-      { headerText: 'May 1 2025', startDate: new Date('2025-05-01T00:00:00.000Z'), isCurrent: false },
-      { headerText: 'May 2 2025', startDate: new Date('2025-05-02T00:00:00.000Z'), isCurrent: false },
+      {
+        headerText: 'May 1 2025',
+        startDate: new Date('2025-05-01T00:00:00.000Z'),
+        isCurrent: false,
+      },
+      {
+        headerText: 'May 2 2025',
+        startDate: new Date('2025-05-02T00:00:00.000Z'),
+        isCurrent: false,
+      },
     ];
     (service as unknown as { columns: ReturnType<typeof signal<WorkOrderColumn[]>> }).columns =
       signal(columns);

@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { formatDate } from '@angular/common';
 
@@ -70,6 +77,4 @@ export class Datepicker implements ControlValueAccessor {
   setDisabledState(isDisabled: boolean): void {
     this.disabled.set(isDisabled);
   }
-
-
 }

@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './backdrop.html',
   styleUrl: './backdrop.scss',
 })
-export class Backdrop {
-
-}
+export class Backdrop {}

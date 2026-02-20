@@ -1,7 +1,7 @@
 @use '@styles/variables' as v;
 
 .backdrop {
-    background-color: v.$backdrop-bg;
-    position: relative;
-    z-index: 6;
+  background-color: v.$backdrop-bg;
+  position: relative;
+  z-index: 6;
 }
