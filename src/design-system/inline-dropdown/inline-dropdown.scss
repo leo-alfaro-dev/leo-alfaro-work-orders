@@ -44,7 +44,7 @@
   }
 
   .dropdown-options {
-    width: 200px;
+    width: 100%;
     height: 136px;
     box-shadow:
       0 0 0 1px v.$shadow-border-light,
@@ -53,15 +53,20 @@
     border-radius: 5px;
     background-color: v.$white;
     border: none;
+    overflow-y: auto;
 
     .option {
-      width: 150px;
-      height: 18px;
+      width: 100%;
+      height: 28px;
       color: v.$text-secondary;
       font-family: CircularStd-Book;
       font-size: 14px;
       font-weight: 400;
       font-style: book;
+    }
+
+    .option.selected {
+      color: v.$in-progress-label-color;
     }
   }
 }
